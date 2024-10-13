@@ -103,22 +103,31 @@ while True:
     col_sig1, col_sig2, col_sig3 = st.columns(3)
     
     with col_sig1:
-        if data['Adj Close'].iloc[-1] > data['VWAP1'].iloc[-1]:
-            st.success(f"Precio por encima de VWAP ({window1} periodos)")
-        else:
-            st.error(f"Precio por debajo de VWAP ({window1} periodos)")
+        try:
+            if data['Adj Close'].iloc[-1] > data['VWAP1'].iloc[-1]:
+                st.success(f"Precio por encima de VWAP ({window1} periodos)")
+            else:
+                st.error(f"Precio por debajo de VWAP ({window1} periodos)")
+        except:
+            pass
 
     with col_sig2:
-        if data['Adj Close'].iloc[-1] > data['VWAP2'].iloc[-1]:
-            st.success(f"Precio por encima de VWAP ({window2} periodos)")
-        else:
-            st.error(f"Precio por debajo de VWAP ({window2} periodos)")
-
+        try:
+            if data['Adj Close'].iloc[-1] > data['VWAP2'].iloc[-1]:
+                st.success(f"Precio por encima de VWAP ({window2} periodos)")
+            else:
+                st.error(f"Precio por debajo de VWAP ({window2} periodos)")
+        except:
+            pass
+            
     with col_sig3:
-        if data['Adj Close'].iloc[-1] > data['VWAP3'].iloc[-1]:
-            st.success(f"Precio por encima de VWAP ({window3} periodos)")
-        else:
-            st.error(f"Precio por debajo de VWAP ({window3} periodos)")
+        try:
+            if data['Adj Close'].iloc[-1] > data['VWAP3'].iloc[-1]:
+                st.success(f"Precio por encima de VWAP ({window3} periodos)")
+            else:
+                st.error(f"Precio por debajo de VWAP ({window3} periodos)")
+        except:
+            pass
 
     # Esperar el tiempo especificado antes de actualizar
     time.sleep(update_interval)
